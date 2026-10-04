@@ -1,3 +1,6 @@
+Extended Johan Li's Fingerprint Scanner Simulator by two more fingerprints. 
+Also changed the game score to count solved fingerprints instead of tracking time it did cost to solve the original four fingerprints
+
 # Fingerprint Scanner Simulator
 
 *The Diamond Casino Heist* in GTA Online introduces two hacking minigames,
