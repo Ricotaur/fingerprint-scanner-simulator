@@ -8,26 +8,23 @@ interface Props {
 }
 
 const Stats = (props: Props) => {
-  const { startTimestamp, lastRun } = props.state
+  const { startTimestamp, solvedFingerprints } = props.state
+  const [elapsedTime, setElapsedTime] = useState(0)
 
-  const [thisRun, setThisRun] = useState(0)
-
-  useInterval(
-    () => {
-      setThisRun(performance.now() - startTimestamp)
-    },
-    random(40, 60),
-  )
+  useInterval(() => {
+    setElapsedTime(performance.now() - startTimestamp)
+  }, random(40, 60))
 
   return (
     <div className="space-y-4 text-right">
-      <div className="opacity-50">
-        <div className="mb-1">Last run</div>
-        {lastRun ? formatTimestamp(lastRun) : '-'}
-      </div>
       <div>
-        <div className="mb-1">This run</div>
-        {formatTimestamp(thisRun)}
+        <div className="mb-1">Score</div>
+        {solvedFingerprints}
+      </div>
+
+      <div>
+        <div className="mb-1">Zeit</div>
+        {formatTimestamp(elapsedTime)}
       </div>
     </div>
   )

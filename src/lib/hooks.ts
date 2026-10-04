@@ -27,11 +27,19 @@ const FINGERPRINTS: {
     variant: 4,
     correctElements: [1, 2, 3, 4],
   },
+    {
+    variant: 5,
+    correctElements: [1, 2, 3, 4],
+  },
+      {
+    variant: 6,
+    correctElements: [1, 2, 3, 4],
+  },
 ]
 
 const ELEMENTS = fingerprintElementI
 
-export const modes = ['normal', 'hard'] as const
+export const modes = ['normal'] as const
 type Mode = (typeof modes)[number]
 
 export interface State {
@@ -41,8 +49,7 @@ export interface State {
   selectedElements: FingerprintElementI[]
   wrongFlash: boolean
   startTimestamp: number
-  lastRun: number
-  thisRun: number
+  solvedFingerprints: number
   mode: Mode
 }
 
@@ -102,26 +109,25 @@ export const reducer = (state: State, action: Action): State => {
         }
       }
 
+      const solvedFingerprints = state.solvedFingerprints + 1
       const solvedAll = state.shuffledFingerprints.length === 1
 
       if (!solvedAll) {
         return {
           ...state,
+          solvedFingerprints,
           shuffledFingerprints: state.shuffledFingerprints.slice(1),
           shuffledElements: shuffle(ELEMENTS),
           selectedElements: [],
         }
       }
 
-      const startTimestamp = performance.now()
-
       return {
         ...state,
+        solvedFingerprints,
         shuffledFingerprints: shuffle(FINGERPRINTS.map((f) => f.variant)),
         shuffledElements: shuffle(ELEMENTS),
         selectedElements: [],
-        lastRun: startTimestamp - state.startTimestamp,
-        startTimestamp,
       }
     }
     case 'REMOVE_ELEMENT': {
@@ -152,8 +158,7 @@ export const initialState = (): State => ({
   selectedElements: [],
   wrongFlash: false,
   startTimestamp: performance.now(),
-  lastRun: 0,
-  thisRun: 0,
+  solvedFingerprints: 0,
   mode: 'normal',
 })
 

@@ -2,6 +2,8 @@ import finger1 from './assets/finger-1.webp'
 import finger2 from './assets/finger-2.webp'
 import finger3 from './assets/finger-3.webp'
 import finger4 from './assets/finger-4.webp'
+import finger5 from './assets/finger-5.webp'
+import finger6 from './assets/finger-6.webp'
 
 import finger1_1 from './assets/finger-1-1.webp'
 import finger1_2 from './assets/finger-1-2.webp'
@@ -39,11 +41,31 @@ import finger4_6 from './assets/finger-4-6.webp'
 import finger4_7 from './assets/finger-4-7.webp'
 import finger4_8 from './assets/finger-4-8.webp'
 
+import finger5_1 from './assets/finger-5-1.webp'
+import finger5_2 from './assets/finger-5-2.webp'
+import finger5_3 from './assets/finger-5-3.webp'
+import finger5_4 from './assets/finger-5-4.webp'
+import finger5_5 from './assets/finger-5-5.webp'
+import finger5_6 from './assets/finger-5-6.webp'
+import finger5_7 from './assets/finger-5-7.webp'
+import finger5_8 from './assets/finger-5-8.webp'
+
+import finger6_1 from './assets/finger-6-1.webp'
+import finger6_2 from './assets/finger-6-2.webp'
+import finger6_3 from './assets/finger-6-3.webp'
+import finger6_4 from './assets/finger-6-4.webp'
+import finger6_5 from './assets/finger-6-5.webp'
+import finger6_6 from './assets/finger-6-6.webp'
+import finger6_7 from './assets/finger-6-7.webp'
+import finger6_8 from './assets/finger-6-8.webp'
+
 const fingerprintMap = {
   '1': finger1,
   '2': finger2,
   '3': finger3,
   '4': finger4,
+  '5': finger5,
+  '6': finger6,
   '1-1': finger1_1,
   '1-2': finger1_2,
   '1-3': finger1_3,
@@ -76,9 +98,25 @@ const fingerprintMap = {
   '4-6': finger4_6,
   '4-7': finger4_7,
   '4-8': finger4_8,
+  '5-1': finger5_1,
+  '5-2': finger5_2,
+  '5-3': finger5_3,
+  '5-4': finger5_4,
+  '5-5': finger5_5,
+  '5-6': finger5_6,
+  '5-7': finger5_7,
+  '5-8': finger5_8,
+  '6-1': finger6_1,
+  '6-2': finger6_2,
+  '6-3': finger6_3,
+  '6-4': finger6_4,
+  '6-5': finger6_5,
+  '6-6': finger6_6,
+  '6-7': finger6_7,
+  '6-8': finger6_8,
 }
 
-const fingerprintI = [1, 2, 3, 4] as const
+const fingerprintI = [1, 2, 3, 4, 5, 6] as const
 export type FingerprintI = (typeof fingerprintI)[number]
 
 export const fingerprintElementI = [1, 2, 3, 4, 5, 6, 7, 8]
